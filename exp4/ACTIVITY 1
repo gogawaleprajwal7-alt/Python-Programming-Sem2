@@ -1,0 +1,23 @@
+# Store product prices and calculate total bill.
+"""
+Created on Fri Apr 02 15:10:00 2026
+
+@author:PRAJWAL GOGAWALE
+"""
+
+# Take number of products
+n = int(input("Enter number of products: "))
+prices = []
+
+# Input prices
+for i in range(n):
+    p = float(input(f"Enter price of product {i+1}: "))
+    prices.append(p)
+
+# Calculate total bill
+total = sum(prices)
+
+# Output
+print("Product prices:", prices)
+print("Total bill:", total)
+

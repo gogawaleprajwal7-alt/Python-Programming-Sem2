@@ -1,0 +1,16 @@
+# Program to find students present in both classes
+
+# Input roll numbers for Class A
+classA = set(map(int, input("Enter roll numbers for Class A (space-separated): ").split()))
+
+# Input roll numbers for Class B
+classB = set(map(int, input("Enter roll numbers for Class B (space-separated): ").split()))
+
+# Find common students using intersection
+common_students = classA & classB
+
+# Display result
+if common_students:
+    print("Students present in both classes:", sorted(common_students))
+else:
+    print("No students are present in both classes.")

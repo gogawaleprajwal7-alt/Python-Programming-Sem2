@@ -1,0 +1,15 @@
+# Reverse a customer feedback message.
+"""
+Created on Fri Apr 02 15:10:00 2026
+
+@author: PRAJWAL GOGAWALE
+"""
+
+# Take input from user
+message = input("Enter feedback message: ")
+
+# Reverse the message
+reversed_message = message[::-1]
+
+# Output
+print("Reversed message:", reversed_message)

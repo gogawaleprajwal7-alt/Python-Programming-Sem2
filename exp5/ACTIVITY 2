@@ -1,0 +1,23 @@
+# Program to add new stock to shop inventory
+
+# Initial inventory (item: quantity)
+inventory = {
+    "apple": 50,
+    "banana": 30,
+    "orange": 20
+}
+
+# Input new item and quantity
+item = input("Enter item name: ").lower()
+quantity = int(input("Enter quantity to add: "))
+
+# Add or update stock
+if item in inventory:
+    inventory[item] += quantity
+else:
+    inventory[item] = quantity
+
+# Display updated inventory
+print("\nUpdated Inventory:")
+for key, value in inventory.items():
+    print(f"{key} : {value}")

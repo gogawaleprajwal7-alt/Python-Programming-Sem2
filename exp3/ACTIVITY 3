@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May  4 11:02:34 2026
+
+@author: User
+"""
+
+def generate_tables(start=1, end=10, upto=10):
+    for i in range(start, end + 1):
+        print(f"\nMultiplication Table of {i}")
+        print("-" * 25)
+        for j in range(1, upto + 1):
+            print(f"{i} x {j} = {i * j}")
+
+generate_tables(1, 10, 10)

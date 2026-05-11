@@ -1,0 +1,36 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 11 10:17:06 2026
+
+@author: User
+"""
+
+# File name
+filename = "expenses.txt"
+
+# Add daily expense
+date = input("Enter date (YYYY-MM-DD): ")
+amount = float(input("Enter expense amount: "))
+
+# Store in file
+with open(filename, "a") as file:
+    file.write(f"{date},{amount}\n")
+
+print("Expense saved successfully!")
+
+# Calculate monthly total
+month = input("Enter month to calculate total (YYYY-MM): ")
+
+total = 0
+
+with open(filename, "r") as file:
+    for line in file:
+        data = line.strip().split(",")
+
+        expense_date = data[0]
+        expense_amount = float(data[1])
+
+        if expense_date.startswith(month):
+            total += expense_amount
+
+print(f"Total expense for {month}: ₹{total}")

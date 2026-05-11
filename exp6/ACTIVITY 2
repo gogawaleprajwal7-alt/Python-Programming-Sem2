@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 11 10:18:27 2026
+
+@author: User
+"""
+
+# File name
+filename = "attendance.txt"
+
+# Input student details
+name = input("Enter student name: ")
+date = input("Enter date (YYYY-MM-DD): ")
+status = input("Enter attendance (Present/Absent): ")
+
+# Append record to file
+with open(filename, "a") as file:
+    file.write(f"{name}, {date}, {status}\n")
+
+print("Attendance record added successfully!")
+
+# Display all records
+print("\nAttendance Records:")
+
+with open(filename, "r") as file:
+    records = file.read()
+    print(records)

@@ -1,0 +1,47 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 11 10:37:28 2026
+
+@author: Prajwal Gogawale
+"""
+
+import streamlit as st
+
+st.title("🛒 Grocery Bill Calculator")
+
+# Initialize session state to store items
+if "items" not in st.session_state:
+    st.session_state.items = []
+
+# Input fields
+item_name = st.text_input("Enter item name")
+price = st.number_input("Enter price per item (₹)", min_value=0.0, step=0.5)
+quantity = st.number_input("Enter quantity", min_value=1, step=1)
+
+# Add item button
+if st.button("Add Item"):
+    if item_name:
+        total = price * quantity
+        st.session_state.items.append((item_name, price, quantity, total))
+        st.success(f"{item_name} added to bill!")
+    else:
+        st.warning("Please enter item name")
+
+# Display bill
+if st.session_state.items:
+    st.subheader("🧾 Bill Summary")
+
+    grand_total = 0
+
+    for i, item in enumerate(st.session_state.items, start=1):
+        name, price, qty, total = item
+        st.write(f"{i}. {name} | ₹{price} × {qty} = ₹{total}")
+        grand_total += total
+
+    st.markdown("---")
+    st.subheader(f"💰 Grand Total: ₹{grand_total}")
+
+# Clear bill
+if st.button("Clear Bill"):
+    st.session_state.items = []
+    st.warning("Bill cleared!")

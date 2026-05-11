@@ -2,7 +2,7 @@
 """
 Created on Mon May  4 10:50:11 2026
 
-@author: User
+@author: Prajwal Gogawale
 """
 
 def calculate_simple_interest(principal, rate, time):

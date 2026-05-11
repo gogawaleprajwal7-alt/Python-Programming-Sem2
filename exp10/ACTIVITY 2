@@ -1,0 +1,46 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 11 10:39:06 2026
+
+@author: Prajwal Gogawale
+"""
+
+import streamlit as st
+
+st.title("💪 BMI Health Checker App")
+
+st.write("Calculate your Body Mass Index (BMI) and check your health category.")
+
+# Input fields
+name = st.text_input("Enter your name")
+weight = st.number_input("Enter weight (kg)", min_value=1.0, step=0.5)
+height_cm = st.number_input("Enter height (cm)", min_value=50.0, step=0.5)
+
+# Calculate BMI
+if st.button("Calculate BMI"):
+    if name:
+        height_m = height_cm / 100
+        bmi = weight / (height_m ** 2)
+
+        # Determine category
+        if bmi < 18.5:
+            category = "Underweight"
+        elif bmi < 24.9:
+            category = "Normal weight"
+        elif bmi < 29.9:
+            category = "Overweight"
+        else:
+            category = "Obese"
+
+        # Display results
+        st.subheader(f"Hello, {name} 👋")
+        st.write(f"Your BMI is: **{bmi:.2f}**")
+        st.write(f"Health Status: **{category}**")
+
+        # Simple health message
+        if category == "Normal weight":
+            st.success("You are in a healthy range!")
+        else:
+            st.warning("Consider maintaining a healthy diet and exercise.")
+    else:
+        st.error("Please enter your name.")

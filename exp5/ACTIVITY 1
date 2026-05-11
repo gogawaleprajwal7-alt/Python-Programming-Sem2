@@ -1,16 +1,45 @@
-# Program to find students present in both classes
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 11 10:46:46 2026
 
-# Input roll numbers for Class A
-classA = set(map(int, input("Enter roll numbers for Class A (space-separated): ").split()))
+@author: Prajwal Gogawale
+"""
 
-# Input roll numbers for Class B
-classB = set(map(int, input("Enter roll numbers for Class B (space-separated): ").split()))
+class Library:
 
-# Find common students using intersection
-common_students = classA & classB
+    def __init__(self):
+        # Dictionary to store book name and price
+        self.books = {
+            "Python Basics": 500,
+            "Data Structures": 700,
+            "Machine Learning": 900
+        }
 
-# Display result
-if common_students:
-    print("Students present in both classes:", sorted(common_students))
-else:
-    print("No students are present in both classes.")
+    # Display all books
+    def display_books(self):
+        print("\nAvailable Books:")
+        for book, price in self.books.items():
+            print(f"{book} : ₹{price}")
+
+    # Update book price
+    def update_price(self, book_name, new_price):
+        if book_name in self.books:
+            old_price = self.books[book_name]
+            self.books[book_name] = new_price
+            print(f"\nPrice updated for '{book_name}'")
+            print(f"Old Price: ₹{old_price} → New Price: ₹{new_price}")
+        else:
+            print("\nBook not found in library!")
+
+
+# Main program
+library = Library()
+
+library.display_books()
+
+book_name = input("\nEnter book name to update: ")
+new_price = float(input("Enter new price: "))
+
+library.update_price(book_name, new_price)
+
+library.display_books()

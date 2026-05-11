@@ -1,0 +1,38 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 11 10:35:51 2026
+
+@author: User
+"""
+
+import math
+
+class DistanceCalculator:
+
+    def __init__(self, x1, y1, x2, y2):
+        self.x1 = x1
+        self.y1 = y1
+        self.x2 = x2
+        self.y2 = y2
+
+    def calculate_distance(self):
+        dx = self.x2 - self.x1
+        dy = self.y2 - self.y1
+
+        distance = math.sqrt(math.pow(dx, 2) + math.pow(dy, 2))
+        return distance
+
+    def display(self):
+        print("\nPoint A:", (self.x1, self.y1))
+        print("Point B:", (self.x2, self.y2))
+        print(f"Distance: {self.calculate_distance():.2f}")
+
+
+# Main program
+x1 = float(input("Enter x1: "))
+y1 = float(input("Enter y1: "))
+x2 = float(input("Enter x2: "))
+y2 = float(input("Enter y2: "))
+
+calc = DistanceCalculator(x1, y1, x2, y2)
+calc.display()

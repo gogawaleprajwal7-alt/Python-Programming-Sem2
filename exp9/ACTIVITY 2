@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 11 10:35:20 2026
+
+@author: User
+"""
+
+from datetime import datetime
+
+class HospitalAppointment:
+
+    def __init__(self, patient_name):
+        self.patient_name = patient_name
+        self.appointment_date = datetime.today().date()
+
+    def display_appointment(self):
+        print("\nHospital Appointment Details")
+        print(f"Patient Name     : {self.patient_name}")
+        print(f"Appointment Date : {self.appointment_date}")
+
+
+# Main program
+name = input("Enter patient name: ")
+
+appointment = HospitalAppointment(name)
+appointment.display_appointment()

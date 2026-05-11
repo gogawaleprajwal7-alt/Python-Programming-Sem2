@@ -1,0 +1,49 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 11 10:23:45 2026
+
+@author: User
+"""
+
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 11 10:22:57 2026
+
+@author: User
+"""
+
+class Employee:
+
+    # Constructor
+    def __init__(self, name, emp_id, basic_salary):
+        self.name = name
+        self.emp_id = emp_id
+        self.basic_salary = basic_salary
+
+    # Method to calculate gross salary
+    def calculate_gross_salary(self):
+
+        # Allowances
+        hra = 0.2 * self.basic_salary   # House Rent Allowance 20%
+        da = 0.1 * self.basic_salary    # Dearness Allowance 10%
+
+        gross_salary = self.basic_salary + hra + da
+        return gross_salary
+
+    # Method to display employee details
+    def display_details(self):
+        print(f"Employee Name: {self.name}")
+        print(f"Employee ID: {self.emp_id}")
+        print(f"Basic Salary: ₹{self.basic_salary}")
+        print(f"Gross Salary: ₹{self.calculate_gross_salary()}")
+
+
+# Example usage
+name = input("Enter employee name: ")
+emp_id = input("Enter employee ID: ")
+basic_salary = float(input("Enter basic salary: "))
+
+emp = Employee(name, emp_id, basic_salary)
+
+print("\nEmployee Details:")
+emp.display_details()

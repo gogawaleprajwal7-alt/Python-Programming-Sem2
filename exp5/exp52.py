@@ -1,29 +1,18 @@
-# Library Dictionary Program
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 11 10:49:28 2026
 
-# Step 1: Create dictionary
-library = {
-    "Python Basics": 300,
-    "Data Structures": 450,
-    "AI Fundamentals": 600
-}
+@author: Prajwal Gogawale
+"""
 
-# Step 2: Display current books and prices
-print("Library Books and Prices:")
-for book, price in library.items():
-    print(book, ":", price)
-
-# Step 3: Take input from user
-book_name = input("\nEnter the book name to update price: ")
-
-# Step 4: Check and update price
-if book_name in library:
-    new_price = float(input("Enter new price: "))
-    library[book_name] = new_price
-    print("\nPrice updated successfully!")
-else:
-    print("\nBook not found in library.")
-
-# Step 5: Display updated dictionary
-print("\nUpdated Library:")
-for book, price in library.items():
-    print(book, ":", price)
+# Taking input for the first set
+set1 = set(map(int, input("Enter elements of first set (space-separated): ").split()))
+# Taking input for the second set
+set2 = set(map(int, input("Enter elements of second set (space-separated): ").split()))
+# Union of two sets
+union_set = set1 | set2 # or set1.union(set2)
+# Intersection of two sets
+intersection_set = set1 & set2 # or set1.intersection(set2)
+# Display the results
+print("Union of the sets:", union_set)
+print("Intersection of the sets:", intersection_set)

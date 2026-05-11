@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 11 09:50:24 2026
+
+@author: User
+"""
+
+# Shop inventory dictionary
+inventory = {
+    "Pen": 20,
+    "Notebook": 15,
+    "Pencil": 30
+}
+
+# Add new stock
+inventory["Eraser"] = 25
+
+# Display updated inventory
+print(inventory)

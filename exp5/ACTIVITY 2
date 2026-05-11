@@ -1,23 +1,42 @@
-# Program to add new stock to shop inventory
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 11 10:48:05 2026
 
-# Initial inventory (item: quantity)
-inventory = {
-    "apple": 50,
-    "banana": 30,
-    "orange": 20
-}
+@author: Prajwal Gogawale
+"""
 
-# Input new item and quantity
-item = input("Enter item name: ").lower()
-quantity = int(input("Enter quantity to add: "))
+class Attendance:
 
-# Add or update stock
-if item in inventory:
-    inventory[item] += quantity
-else:
-    inventory[item] = quantity
+    def __init__(self, class_a, class_b):
+        self.class_a = set(class_a)
+        self.class_b = set(class_b)
 
-# Display updated inventory
-print("\nUpdated Inventory:")
-for key, value in inventory.items():
-    print(f"{key} : {value}")
+    # Find students present in both classes
+    def common_students(self):
+        return self.class_a.intersection(self.class_b)
+
+    # Display results
+    def display(self):
+        print("\nClass A Students:", self.class_a)
+        print("Class B Students:", self.class_b)
+
+        common = self.common_students()
+
+        print("\nStudents present in BOTH classes:")
+        if common:
+            for roll in common:
+                print(roll)
+        else:
+            print("No common students found.")
+
+
+# Main program
+class_a = input("Enter Class A roll numbers (comma-separated): ")
+class_b = input("Enter Class B roll numbers (comma-separated): ")
+
+# Convert input into lists of integers
+class_a_list = list(map(int, class_a.split(",")))
+class_b_list = list(map(int, class_b.split(",")))
+
+attendance = Attendance(class_a_list, class_b_list)
+attendance.display()

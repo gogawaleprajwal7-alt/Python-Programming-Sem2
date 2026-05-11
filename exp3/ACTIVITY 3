@@ -2,7 +2,7 @@
 """
 Created on Mon May  4 11:02:34 2026
 
-@author: User
+@author: Prajwal Gogawale
 """
 
 def generate_tables(start=1, end=10, upto=10):

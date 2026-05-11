@@ -1,0 +1,23 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 11 10:21:35 2026
+
+@author: User
+"""
+
+# File name
+filename = "complaints.txt"
+
+try:
+    # Open and read the complaint file
+    with open(filename, "r") as file:
+        complaints = file.readlines()
+
+    # Display all complaints
+    print("List of Complaints:\n")
+
+    for complaint in complaints:
+        print(complaint.strip())
+
+except FileNotFoundError:
+    print("Complaint file not found.")

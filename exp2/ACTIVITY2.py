@@ -1,7 +1,7 @@
 """
 Created on Mon May  4 09:44:43 2026
 
-@author: User
+@author: Prajwal Gogawale
 """
 
 # Program to check movie ticket eligibility

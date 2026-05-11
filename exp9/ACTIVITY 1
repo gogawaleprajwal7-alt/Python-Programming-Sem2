@@ -1,0 +1,50 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 11 10:34:23 2026
+
+@author: User
+"""
+
+import math
+
+class Loan:
+
+    def __init__(self, principal, annual_rate, years):
+        self.principal = principal
+        self.annual_rate = annual_rate
+        self.years = years
+
+    def calculate_emi(self):
+        # Convert annual rate to monthly rate
+        monthly_rate = self.annual_rate / (12 * 100)
+
+        # Total number of months
+        months = self.years * 12
+
+        # EMI formula using math.pow
+        emi = (self.principal * monthly_rate * math.pow(1 + monthly_rate, months)) / \
+              (math.pow(1 + monthly_rate, months) - 1)
+
+        return emi
+
+    def total_payment(self):
+        emi = self.calculate_emi()
+        return emi * self.years * 12
+
+    def total_interest(self):
+        return self.total_payment() - self.principal
+
+
+# Main program
+p = float(input("Enter loan amount (Principal): "))
+r = float(input("Enter annual interest rate (%): "))
+t = int(input("Enter loan tenure (years): "))
+
+loan = Loan(p, r, t)
+
+emi = loan.calculate_emi()
+
+print("\nLoan Details")
+print(f"Monthly EMI      : ₹{emi:.2f}")
+print(f"Total Payment     : ₹{loan.total_payment():.2f}")
+print(f"Total Interest    : ₹{loan.total_interest():.2f}")

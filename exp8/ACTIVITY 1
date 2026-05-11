@@ -1,0 +1,67 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 11 10:28:56 2026
+
+@author: User
+"""
+
+class ATM:
+
+    def __init__(self, account_holder, balance=0):
+        self.account_holder = account_holder
+        self.balance = balance
+
+    # Deposit money
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+            print(f"₹{amount} deposited successfully.")
+        else:
+            print("Invalid deposit amount.")
+
+    # Withdraw money with balance check
+    def withdraw(self, amount):
+        if amount <= 0:
+            print("Invalid withdrawal amount.")
+        elif amount > self.balance:
+            print("Insufficient balance!")
+            print(f"Available balance: ₹{self.balance}")
+        else:
+            self.balance -= amount
+            print(f"₹{amount} withdrawn successfully.")
+
+    # Show balance
+    def check_balance(self):
+        print(f"Current balance: ₹{self.balance}")
+
+
+# Main program
+name = input("Enter account holder name: ")
+atm = ATM(name)
+
+while True:
+    print("\n--- ATM Menu ---")
+    print("1. Deposit")
+    print("2. Withdraw")
+    print("3. Check Balance")
+    print("4. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        amt = float(input("Enter deposit amount: "))
+        atm.deposit(amt)
+
+    elif choice == "2":
+        amt = float(input("Enter withdrawal amount: "))
+        atm.withdraw(amt)
+
+    elif choice == "3":
+        atm.check_balance()
+
+    elif choice == "4":
+        print("Thank you for using ATM.")
+        break
+
+    else:
+        print("Invalid choice. Try again.")

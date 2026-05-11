@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon May 11 10:29:42 2026
+Created on Mon May 11 10:54:35 2026
 
-@author: User
+@author: Prajwal Gogawale
 """
 
 class Registration:
@@ -11,19 +11,23 @@ class Registration:
         self.name = name
         self.age = age
 
+    # Validate age
     def validate_age(self):
         if self.age < 0:
-            raise ValueError("Age cannot be negative.")
+            return "❌ Age cannot be negative"
         elif self.age < 18:
-            raise ValueError("You must be at least 18 years old to register.")
+            return "❌ You must be at least 18 years old to register"
         elif self.age > 100:
-            raise ValueError("Please enter a valid age (0–100).")
+            return "❌ Please enter a valid age (0–100)"
         else:
-            return "Registration successful!"
+            return "✅ Registration Successful"
 
+    # Display details
     def display(self):
-        print(f"\nName: {self.name}")
-        print(f"Age: {self.age}")
+        print("\nRegistration Details")
+        print(f"Name : {self.name}")
+        print(f"Age  : {self.age}")
+        print(self.validate_age())
 
 
 # Main program
@@ -31,13 +35,9 @@ name = input("Enter your name: ")
 
 try:
     age = int(input("Enter your age: "))
+
     user = Registration(name, age)
-    
-    print(user.validate_age())
     user.display()
 
-except ValueError as e:
-    print("Error:", e)
-
-except Exception:
-    print("Invalid input! Please enter a valid number for age.")
+except ValueError:
+    print("❌ Invalid input! Age must be a number.")

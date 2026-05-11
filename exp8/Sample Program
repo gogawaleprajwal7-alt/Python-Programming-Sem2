@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 11 10:55:37 2026
+
+@author: Prajwal Gogawale
+ ''''''
+
 # Example list
 numbers = [10, 20, 30]
 try:

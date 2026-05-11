@@ -1,0 +1,55 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 11 10:40:20 2026
+
+@author: Prajwal Gogawale
+"""
+
+import streamlit as st
+
+st.title("🎓 Student Result Calculator App")
+
+st.write("Enter marks for 5 subjects to calculate result")
+
+# Input fields
+name = st.text_input("Enter student name")
+
+sub1 = st.number_input("Subject 1 marks", min_value=0, max_value=100)
+sub2 = st.number_input("Subject 2 marks", min_value=0, max_value=100)
+sub3 = st.number_input("Subject 3 marks", min_value=0, max_value=100)
+sub4 = st.number_input("Subject 4 marks", min_value=0, max_value=100)
+sub5 = st.number_input("Subject 5 marks", min_value=0, max_value=100)
+
+# Grade function
+def get_grade(percentage):
+    if percentage >= 90:
+        return "A+"
+    elif percentage >= 80:
+        return "A"
+    elif percentage >= 70:
+        return "B"
+    elif percentage >= 60:
+        return "C"
+    elif percentage >= 50:
+        return "D"
+    else:
+        return "Fail"
+
+# Calculate result
+if st.button("Calculate Result"):
+    if name:
+        total = sub1 + sub2 + sub3 + sub4 + sub5
+        percentage = total / 5
+        grade = get_grade(percentage)
+
+        st.subheader(f"Result for {name}")
+        st.write(f"Total Marks: **{total}/500**")
+        st.write(f"Percentage: **{percentage:.2f}%**")
+        st.write(f"Grade: **{grade}**")
+
+        if grade == "Fail":
+            st.error("Student has failed.")
+        else:
+            st.success("Congratulations! Passed.")
+    else:
+        st.error("Please enter student name.")
